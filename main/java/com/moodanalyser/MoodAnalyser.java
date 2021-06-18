@@ -9,19 +9,19 @@ public class MoodAnalyser {
         this.message = message;
     }
 
-    public String MoodAnalyser(String message) {
+    public String analyseMood(String message) throws MoodAnalysisException {
         this.message = message;
         return analyseMood();
     }
 
-    public String analyseMood() {
+    public String analyseMood() throws MoodAnalysisException {
         try {
             if (message.contains("SAD"))
                 return "SAD";
             else
                 return "HAPPY";
         } catch (NullPointerException e) {
-            return "HAPPY";
+            throw new MoodAnalysisException("Please Enter a Proper Message");
         }
     }
 }
