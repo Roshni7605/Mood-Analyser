@@ -10,7 +10,7 @@ public class MoodAnalyserTest {
         try {
             moodAnalyser.analyseMood();
         } catch (MoodAnalysisException e) {
-            Assertions.assertEquals("Please Enter a Proper Message", e.getMessage());
+            Assertions.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_NULL, e.type);
         }
     }
 }
