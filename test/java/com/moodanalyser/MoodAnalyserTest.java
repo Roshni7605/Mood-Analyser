@@ -7,7 +7,10 @@ public class MoodAnalyserTest {
     @Test
     public void givenNullMood_ShouldReturnHappy() {
         MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-        String mood = moodAnalyser.analyseMood();
-        Assertions.assertEquals("HAPPY", mood);
+        try {
+            moodAnalyser.analyseMood();
+        } catch (MoodAnalysisException e) {
+            Assertions.assertEquals("Please Enter a Proper Message", e.getMessage());
+        }
     }
 }
